@@ -1,0 +1,27 @@
+#define waterSensor A0
+#define pumpLED D0  // LED simulating the water pump
+
+int waterLevel = 0;
+int threshold = 400; // Adjust this based on your sensor readings
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pumpLED, OUTPUT);
+}
+
+void loop() {
+  waterLevel = analogRead(waterSensor);
+  Serial.print("Water Level: ");
+  Serial.println(waterLevel);
+
+  if (waterLevel < threshold) {
+    digitalWrite(pumpLED, HIGH);  // Turn ON LED (simulate pump)
+    Serial.println("Water Low → Pump ON");
+  } else {
+    digitalWrite(pumpLED, LOW);   // Turn OFF LED
+    Serial.println("Water OK → Pump OFF");
+  }
+
+  delay(1000);
+}
+

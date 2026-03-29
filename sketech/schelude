@@ -1,0 +1,29 @@
+  //declaration
+  
+  #include <Servo.h>
+  Servo Servo9;
+  int buzzerPin = 4; 
+  
+  // setup
+  
+  Servo9.attach(0);    //D3
+  pinMode(5, INPUT);    //D1
+  pinMode(buzzerPin, OUTPUT);
+  digitalWrite(buzzerPin,LOW);
+  
+  
+  //loop
+  
+  if(scheduleTime.isActive()){
+    digitalWrite(buzzerPin,LOW);
+    if((digitalRead(5) == 0)) {
+		Servo9.write(0);
+        delay(2000);
+	}
+	else {
+		Servo9.write(180);
+	}
+  }else{
+    digitalWrite(buzzerPin,HIGH);
+    Servo9.write(180);
+  }

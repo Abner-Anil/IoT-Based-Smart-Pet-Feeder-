@@ -1,0 +1,12 @@
+servo1 //D3
+servo2 //D4
+buzzer	//D2
+ultrasonic //(echo--D6)	(trg--D5)
+ir  //D1
+
+
+
+hx711 //DT--(D7)	SCK--(D8)
+
+
+

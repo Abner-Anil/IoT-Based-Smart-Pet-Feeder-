@@ -1,0 +1,9 @@
+void onAutoFeedChange()  {
+  // Add your code here to act upon AutoFeed change
+  if(autoFeed){
+    Servo9.write(0);
+    delay(2000);
+  }else{
+    Servo9.write(180);
+  }
+}

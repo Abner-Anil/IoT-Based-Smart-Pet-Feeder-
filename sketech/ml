@@ -1,0 +1,14 @@
+void loop() {
+  ArduinoCloud.update();
+  // Your code here 
+   if (Serial.available()) {
+    String msg = Serial.readStringUntil('\n');
+    msg.trim();
+
+    if (msg.length() > 0) {
+      detectedAnimal = msg;  // update IoT Cloud variable
+      Serial.println("Updated Cloud variable: " + detectedAnimal);
+    }
+  }
+  
+}
